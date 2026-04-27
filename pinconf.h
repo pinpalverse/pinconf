@@ -1,4 +1,4 @@
-#include <cerrno>
+#include <errno.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -23,7 +23,6 @@ int parse(const char *filename, Conf* cfg) {
 
   FILE *conf = fopen(filename, "r");
   if (!conf) {
-    char s[200];
     pinlog(ERROR, strerror(errno));
     return 1;
   }
