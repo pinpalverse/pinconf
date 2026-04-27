@@ -1,6 +1,8 @@
+#include <cerrno>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "pinlog/pinlog.h"
 
 typedef enum { INT, FLOAT, BOOL, TEXT, NONE } CONF_V_TYPE;
 
@@ -22,8 +24,7 @@ int parse(const char *filename, Conf* cfg) {
   FILE *conf = fopen(filename, "r");
   if (!conf) {
     char s[200];
-    sprintf(s,"Line %d: fopen", __LINE__);
-    perror(s);
+    pinlog(ERROR, strerror(errno));
     return 1;
   }
   fseek(conf, 0, SEEK_END);
@@ -73,7 +74,7 @@ int parse(const char *filename, Conf* cfg) {
       c.v_type = FLOAT;
     }
     else{
-      printf("parsing error, unknown token at '%s'\n", tk);
+      pinlog(ERROR,"parsing error, unknown token at '%s'\n", tk);
       return 2;
     }
     
