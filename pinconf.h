@@ -1,3 +1,5 @@
+#ifndef __PIN_CONF
+#define __PIN_CONF
 #include <errno.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -88,3 +90,5 @@ int parse(const char *filename, Conf* cfg) {
   free(data);
   return 0;
 }
+
+#endif
