@@ -90,10 +90,10 @@ int parse(const char *filename, Conf* cfg) {
   free(data);
   return 0;
 }
-ConfKV** search(Conf* cfg, char* key){
+ConfKV* search(Conf* cfg, char* key){
   for(int i = 0; i < cfg->columns; i++){
     if(strcmp(cfg->values[i]->k, key) == 0){
-      return &cfg->values[i];
+      return cfg->values[i];
     }
   }
   return NULL;
