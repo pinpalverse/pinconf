@@ -1,4 +1,7 @@
 tests:
-	gcc -o conf_test tests/conf_test.c -Wall -Wextra
+	gcc -o tests tests/conf_test.c -Wall -Wextra
 clean:
-	rm conf_test
+	rm tests
+
+example:
+	gcc example.c  -o example -Wall -Wextra

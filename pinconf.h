@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "pinlog/pinlog.h"
+#include "pinmem/pinmem.h"
 
 typedef enum { INT, FLOAT, BOOL, TEXT, NONE } CONF_V_TYPE;
 
@@ -22,7 +23,7 @@ typedef struct {
 } Conf;
 
 int parse(const char *filename, Conf* cfg) {
-
+  PIN_DEBUG = true;
   FILE *conf = fopen(filename, "r");
   if (!conf) {
     pinlog(ERROR, strerror(errno));
@@ -32,10 +33,10 @@ int parse(const char *filename, Conf* cfg) {
   int fp = ftell(conf);
   fseek(conf, 0, SEEK_SET);
 
-  char *data = (char *)malloc(fp + sizeof(char));
+  char *data = (char *)pmalloc(fp ,4);
 
   fread(data, fp, fp - 1, conf);
-  cfg->filename = (char*)malloc(strlen(filename)+sizeof(char));
+  cfg->filename = (char*)pmalloc(strlen(filename)+sizeof(char),5);
   strcpy(cfg->filename, filename);
   cfg->size = fp;
 
@@ -87,7 +88,8 @@ int parse(const char *filename, Conf* cfg) {
   }
   cfg->columns = i;
   
-  free(data);
+  pfree(data,4);
+  pfree(cfg->filename, 5);
   return 0;
 }
 ConfKV* search(Conf* cfg, char* key){
