@@ -54,9 +54,9 @@ int parse(const char *filename, Conf* cfg) {
     c.v = (char*)malloc(strlen(&s[1])+ sizeof(char));
     c.v_type = NONE;
     if(cfg->values == NULL){
-      cfg->values = (ConfKV**) reallocarray(NULL, 1, sizeof(c));
+      cfg->values = (ConfKV**) reallocarray(NULL, 1, sizeof(ConfKV*));
     }else{
-      cfg->values = (ConfKV**) reallocarray(cfg->values, i, sizeof(c));
+      cfg->values = (ConfKV**) reallocarray(cfg->values, i+1, sizeof(ConfKV*));
     }
     cfg->values[i] = (ConfKV*)malloc(sizeof(c));
     strncpy(c.k, &tk[0], ix);
