@@ -1,7 +1,7 @@
-tests:
-	gcc -o tests tests/conf_test.c -Wall -Wextra
+test:
+	gcc -o test tests/conf_test.c -Wall -Wextra
 clean:
-	rm tests
+	rm test example
 
 example:
 	gcc example.c  -o example -Wall -Wextra

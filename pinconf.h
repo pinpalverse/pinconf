@@ -35,7 +35,7 @@ int parse(const char *filename, Conf* cfg) {
 
   char *data = (char *)pmalloc(fp ,4);
 
-  fread(data, fp, fp - 1, conf);
+  fread(data, fp, fp, conf);
   cfg->filename = (char*)pmalloc(strlen(filename)+sizeof(char),5);
   strcpy(cfg->filename, filename);
   cfg->size = fp;
