@@ -33,11 +33,11 @@ int parse(const char *filename, Conf* cfg) {
   int fp = ftell(conf);
   fseek(conf, 0, SEEK_SET);
 
-  char *data = (char *)pmalloc(fp+1 ,4);
+  char *data = (char *)pmalloc(fp+1);
 
   fread(data, 1, fp, conf);
   data[fp] = '\0';
-  cfg->filename = (char*)pmalloc(strlen(filename)+sizeof(char),5);
+  cfg->filename = (char*)pmalloc(strlen(filename)+sizeof(char));
   strcpy(cfg->filename, filename);
   cfg->size = fp;
 
@@ -50,15 +50,15 @@ int parse(const char *filename, Conf* cfg) {
     char* s = strchr(tk,(int)'=');
     int ix = strcspn(tk,"="); 
     ConfKV c;
-    c.k = (char*)malloc((ix+1) * sizeof(char));
-    c.v = (char*)malloc(strlen(&s[1])+ sizeof(char));
+    c.k = (char*)pmalloc((ix+1) * sizeof(char));
+    c.v = (char*)pmalloc(strlen(&s[1])+ sizeof(char));
     c.v_type = NONE;
     if(cfg->values == NULL){
       cfg->values = (ConfKV**) reallocarray(NULL, 1, sizeof(ConfKV*));
     }else{
       cfg->values = (ConfKV**) reallocarray(cfg->values, i+1, sizeof(ConfKV*));
     }
-    cfg->values[i] = (ConfKV*)malloc(sizeof(c));
+    cfg->values[i] = (ConfKV*)pmalloc(sizeof(c));
     strncpy(c.k, &tk[0], ix);
     c.k[ix] = '\0';
     if(s[1] == '"'){
@@ -89,8 +89,8 @@ int parse(const char *filename, Conf* cfg) {
   }
   cfg->columns = i;
   
-  pfree(data,4);
-  pfree(cfg->filename, 5);
+  pfree(data);
+  pfree(cfg->filename);
   return 0;
 }
 ConfKV* search(Conf* cfg, char* key){

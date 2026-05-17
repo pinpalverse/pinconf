@@ -1,5 +1,5 @@
 #include "pinconf.h"
-
+#include "pinmem/pinmem.h"
 int main(){
     Conf conf;
     parse("example.pconf", &conf);
@@ -7,9 +7,9 @@ int main(){
 
     for (int i = 0; i < conf.columns; i++)
     {
-        free(conf.values[i]->k);
-        free(conf.values[i]->v);
-        free(conf.values[i]);
+        pfree(conf.values[i]->k);
+        pfree(conf.values[i]->v);
+        pfree(conf.values[i]);
     }
     return 0;
 }
