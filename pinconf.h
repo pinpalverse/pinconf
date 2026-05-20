@@ -51,7 +51,11 @@ int parse(const char *filename, Conf* cfg) {
     int ix = strcspn(tk,"="); 
     ConfKV c;
     c.k = (char*)pmalloc((ix+1) * sizeof(char));
-    c.v = (char*)pmalloc(strlen(&s[1])+ sizeof(char));
+    if(s[1] == '"'){
+      c.v = (char*)pmalloc(strlen(&s[1])-2);
+    }else{
+      c.v = (char*)pmalloc(strlen(&s[1]));
+    }
     c.v_type = NONE;
     if(cfg->values == NULL){
       cfg->values = (ConfKV**) preallocarray(NULL, 1, sizeof(ConfKV*));
@@ -61,7 +65,7 @@ int parse(const char *filename, Conf* cfg) {
     cfg->values[i] = (ConfKV*)pmalloc(sizeof(c));
     strncpy(c.k, &tk[0], ix);
     c.k[ix] = '\0';
-    if(s[1] == '"'){
+    if(s[1] == '"' && s[strlen(&s[1])-2]== '"'){
       strncpy(c.v, &s[2], strlen(s)-3);
       c.v_type = TEXT;
     }
@@ -78,6 +82,16 @@ int parse(const char *filename, Conf* cfg) {
     }
     else{
       pinlog(ERROR,"parsing error, unknown token at '%s'\n", tk);
+      pfree(data);
+      pfree(cfg->filename);
+      pfree(c.k);
+      pfree(c.v);
+      for (;i > 0;i--)
+      {
+          pfree(cfg->values[i]->k);
+          pfree(cfg->values[i]->v);
+          pfree(cfg->values[i]);
+      }
       return 2;
     }
     
@@ -90,7 +104,6 @@ int parse(const char *filename, Conf* cfg) {
   cfg->columns = i;
   
   pfree(data);
-  pfree(cfg->filename);
   return 0;
 }
 ConfKV* search(Conf* cfg, char* key){

@@ -11,5 +11,6 @@ int main(){
         pfree(conf.values[i]->v);
         pfree(conf.values[i]);
     }
+    pfree(conf.filename);
     return 0;
 }

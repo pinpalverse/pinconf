@@ -1,5 +1,5 @@
 # Taken from pingin
-http_dir="/usr/share/httpd"
+http_dir="/usr/share/httpd
 port=8080
 https=false
 404_fallback=""
