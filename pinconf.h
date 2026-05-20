@@ -23,6 +23,7 @@ typedef struct {
 } Conf;
 
 int parse(const char *filename, Conf* cfg) {
+  // PIN_DEBUG_ALLOCATION_ATTEMPT = true; For debugging 
   PIN_DEBUG = true;
   FILE *conf = fopen(filename, "r");
   if (!conf) {
@@ -51,7 +52,7 @@ int parse(const char *filename, Conf* cfg) {
     int ix = strcspn(tk,"="); 
     ConfKV c;
     c.k = (char*)pmalloc((ix+1) * sizeof(char));
-    if(s[1] == '"'){
+    if(s[1] == '"' && s[strlen(s)] == '"'){
       c.v = (char*)pmalloc(strlen(&s[1])-2);
     }else{
       c.v = (char*)pmalloc(strlen(&s[1]));
@@ -65,7 +66,7 @@ int parse(const char *filename, Conf* cfg) {
     cfg->values[i] = (ConfKV*)pmalloc(sizeof(c));
     strncpy(c.k, &tk[0], ix);
     c.k[ix] = '\0';
-    if(s[1] == '"' && s[strlen(&s[1])]== '"'){
+    if(s[1] == '"' && s[strlen(&s[1])]== '"' && strlen(&s[1]) > 1){
       strncpy(c.v, &s[2], strlen(s)-3);
       c.v_type = TEXT;
     }
