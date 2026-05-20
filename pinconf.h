@@ -65,7 +65,7 @@ int parse(const char *filename, Conf* cfg) {
     cfg->values[i] = (ConfKV*)pmalloc(sizeof(c));
     strncpy(c.k, &tk[0], ix);
     c.k[ix] = '\0';
-    if(s[1] == '"' && s[strlen(&s[1])-2]== '"'){
+    if(s[1] == '"' && s[strlen(&s[1])]== '"'){
       strncpy(c.v, &s[2], strlen(s)-3);
       c.v_type = TEXT;
     }
@@ -86,11 +86,12 @@ int parse(const char *filename, Conf* cfg) {
       pfree(cfg->filename);
       pfree(c.k);
       pfree(c.v);
+      pfree(cfg->values[i]);
       for (;i > 0;i--)
       {
-          pfree(cfg->values[i]->k);
-          pfree(cfg->values[i]->v);
-          pfree(cfg->values[i]);
+          pfree(cfg->values[i-1]->k);
+          pfree(cfg->values[i-1]->v);
+          pfree(cfg->values[i-1]);
       }
       return 2;
     }

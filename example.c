@@ -2,7 +2,7 @@
 #include "pinmem/pinmem.h"
 int main(){
     Conf conf;
-    parse("example.pconf", &conf);
+    if(parse("example.pconf", &conf)) return 1;
 
 
     for (int i = 0; i < conf.columns; i++)
