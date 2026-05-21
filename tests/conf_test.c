@@ -318,6 +318,7 @@ void test_text_with_spaces()
 
 int main()
 {
+    PIN_DEBUG = false;
     printf("Starting configuration parser tests...\n");
     printf("========================================\n");
     test_basic_integer();
