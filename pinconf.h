@@ -26,8 +26,8 @@ typedef struct
 
 int parse(const char *filename, Conf* cfg)
 {
-    PIN_DEBUG_ALLOCATION_ATTEMPT = true;// For debugging
-    PIN_DEBUG = true;
+    // PIN_DEBUG_ALLOCATION_ATTEMPT = true; // For debugging
+    // PIN_DEBUG = true;
     FILE *conf = fopen(filename, "r");
     if (!conf)
     {

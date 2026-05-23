@@ -35,12 +35,9 @@ void cleanup_config(Conf* cfg)
     pfree(cfg->filename);
     for (int i = 0; i < cfg->columns; i++)
     {
-        if (cfg->values[i])
-        {
             pfree(cfg->values[i]->k);
             pfree(cfg->values[i]->v);
             pfree(cfg->values[i]);
-        }
     }
     pfree(cfg->values);
 }
@@ -319,6 +316,7 @@ void test_text_with_spaces()
 int main()
 {
     PIN_DEBUG = false;
+    PIN_DEBUG_ALLOCATION_ATTEMPT = false;
     printf("Starting configuration parser tests...\n");
     printf("========================================\n");
     test_basic_integer();
