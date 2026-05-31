@@ -79,19 +79,21 @@ int parse(const char *filename, Conf* cfg)
         }
         else if (strcmp(&s[1], "false") == 0 || strcmp(&s[1], "true") == 0)
         {
-            strcpy(c.v, &s[1]);
+            strncpy(c.v, &s[1], strlen(&s[1])+1);
+
             c.v_type = BOOL;
         }
         else if (strspn(&s[1], "0123456789") == strlen(&s[1]))
         {
-            strcpy(c.v, &s[1]);
+            strncpy(c.v, &s[1], strlen(&s[1])+1);
             c.v_type = INT;
         }
         else if ((strchrnul(&s[1], '.') == strrchr(&s[1], '.')) &&
                  (strlen(&s[1 + strrchr(&s[1],
-                                        '.') - &s[1]]) > 1))  // using strchrnul cause if '.' is not found, one will return the pointer to the null byte and one will return NULL, hence avoiding extra checks
-    {
-        strcpy(c.v, &s[1]);
+                                        '.') - &s[1]]) >
+                  1))  // using strchrnul cause if '.' is not found, one will return the pointer to the null byte and one will return NULL, hence avoiding extra checks
+        {
+            strncpy(c.v, &s[1], strlen(&s[1])+1);
             c.v_type = FLOAT;
         }
         else
@@ -112,7 +114,7 @@ int parse(const char *filename, Conf* cfg)
         }
         memcpy(cfg->values[i], &c, sizeof(c));
         i++;
-        NEWTK:
+NEWTK:
         tk = strtok(NULL, "\n");
     }
     cfg->columns = i;
