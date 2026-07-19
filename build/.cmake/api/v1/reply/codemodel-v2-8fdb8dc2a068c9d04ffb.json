@@ -1,0 +1,142 @@
+{
+	"configurations" : 
+	[
+		{
+			"abstractTargets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "pinlog::pinlog::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-pinlog__pinlog-ad9cef6892b855bc3e4b.json",
+					"name" : "pinlog::pinlog",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "pinlog::pinlog_static::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-pinlog__pinlog_static-c24ae02a8615b39d83e8.json",
+					"name" : "pinlog::pinlog_static",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "pinmem::pinmem::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-pinmem__pinmem-5a66a346ae1c52df3df9.json",
+					"name" : "pinmem::pinmem",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "pinmem::pinmem_lite::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-pinmem__pinmem_lite-93fc50698ee9ff4a9865.json",
+					"name" : "pinmem::pinmem_lite",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "pinmem::pinmem_lite_static::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-pinmem__pinmem_lite_static-cf5607af32c6fee1715b.json",
+					"name" : "pinmem::pinmem_lite_static",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "pinmem::pinmem_static::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-pinmem__pinmem_static-c9ef598ff9ff8cda66e6.json",
+					"name" : "pinmem::pinmem_static",
+					"projectIndex" : 0
+				}
+			],
+			"directories" : 
+			[
+				{
+					"abstractTargetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5
+					],
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-5c84210cc142dcc78aa1.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "4.3"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"abstractTargetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "pinconf",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "example::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-example-051d9818233c88e2c8e7.json",
+					"name" : "example",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "pinconf::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-pinconf-492fc76489fa7cd7a5b4.json",
+					"name" : "pinconf",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "pinconf_static::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-pinconf_static-69e30a9ddeb411aa8e8f.json",
+					"name" : "pinconf_static",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/unknown989/Projects/pinconf/build",
+		"source" : "/home/unknown989/Projects/pinconf"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 10
+	}
+}

@@ -1,0 +1,9 @@
+/home/unknown989/Projects/pinconf/build/CMakeFiles/pinconf.dir
+/home/unknown989/Projects/pinconf/build/CMakeFiles/pinconf_static.dir
+/home/unknown989/Projects/pinconf/build/CMakeFiles/example.dir
+/home/unknown989/Projects/pinconf/build/CMakeFiles/edit_cache.dir
+/home/unknown989/Projects/pinconf/build/CMakeFiles/rebuild_cache.dir
+/home/unknown989/Projects/pinconf/build/CMakeFiles/list_install_components.dir
+/home/unknown989/Projects/pinconf/build/CMakeFiles/install.dir
+/home/unknown989/Projects/pinconf/build/CMakeFiles/install/local.dir
+/home/unknown989/Projects/pinconf/build/CMakeFiles/install/strip.dir

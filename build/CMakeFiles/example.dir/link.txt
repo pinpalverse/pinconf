@@ -1,0 +1,1 @@
+/usr/bin/cc -Wl,--dependency-file=CMakeFiles/example.dir/link.d CMakeFiles/example.dir/example.c.o -o example  -Wl,-rpath,/usr/local/lib64 libpinconf.so.1.0 -lpinmem -lpinlog

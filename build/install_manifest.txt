@@ -1,0 +1,10 @@
+/usr/local/lib64/libpinconf.so.1.0
+/usr/local/lib64/libpinconf.so.1
+/usr/local/lib64/libpinconf.so
+/usr/local/include/pinconf/pinconf.h
+/usr/local/lib64/libpinconf.a
+/usr/local/share/pkgconfig/pinconf.pc
+/usr/local/lib64/cmake/pinconf/pinconfConfig.cmake
+/usr/local/lib64/cmake/pinconf/pinconfConfigVersion.cmake
+/usr/local/lib64/cmake/pinconf/pinconfTargets.cmake
+/usr/local/lib64/cmake/pinconf/pinconfTargets-noconfig.cmake

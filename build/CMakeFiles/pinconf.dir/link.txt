@@ -1,0 +1,1 @@
+/usr/bin/cc -fPIC -shared -Wl,--dependency-file=CMakeFiles/pinconf.dir/link.d -Wl,-soname,libpinconf.so.1 -o libpinconf.so.1.0 CMakeFiles/pinconf.dir/src/pinconf.c.o  -Wl,-rpath,/usr/local/lib64 -lpinlog -lpinmem

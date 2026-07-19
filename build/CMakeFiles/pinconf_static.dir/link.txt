@@ -1,0 +1,2 @@
+/usr/bin/ar qc libpinconf.a CMakeFiles/pinconf_static.dir/src/pinconf.c.o
+/usr/bin/ranlib libpinconf.a

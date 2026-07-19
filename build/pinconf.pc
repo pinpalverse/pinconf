@@ -1,0 +1,13 @@
+prefix=/usr/local
+exec_prefix=/usr/local
+libdir=${exec_prefix}/lib64
+includedir=${prefix}/include
+
+Name: pinconf
+Description: The configuration format library for pinpal
+Version: 1.0
+
+Requires:
+Libs: -L${libdir} -lpinconf
+Cflags: -I${includedir}
+

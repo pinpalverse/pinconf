@@ -1,0 +1,12 @@
+@PACKAGE_INIT@
+
+# Find our dependency
+find_package(pinlog REQUIRED)
+
+# Import targets
+include(${CMAKE_CURRENT_LIST_DIR}/pinconfTargets.cmake)
+
+# Provide convenience aliases (optional)
+if(NOT TARGET pinconf::pinconf)
+    add_library(pinconf::pinconf ALIAS pinconf)
+endif()
